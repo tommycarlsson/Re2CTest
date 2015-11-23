@@ -51,10 +51,9 @@ static int getFloat(unsigned char* t, float* value)
 
 /******************************************************************************/
 
-int LGLaserParser_scan(LGLaserParser* self, LGFifo* fifo)
+int LGLaserParser_scan(LGLaserParser* self, unsigned char* fifo, int len)
 {
-  int len = LGFifo_SpaceFilled(fifo); 
-  unsigned char *p = fifo->ReadPtr;
+  unsigned char *p = fifo;
   unsigned char *t = 0;
   unsigned char *q = 0;  
   int res = 0;
@@ -69,7 +68,7 @@ int LGLaserParser_scan(LGLaserParser* self, LGFifo* fifo)
 #define YYCURSOR        p
 #define YYMARKER        q  
 	
-	while (!res)
+	while (!res && p <= &fifo[len-1])
 	{
 		t = p;
 /*!re2c

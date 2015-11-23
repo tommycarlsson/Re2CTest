@@ -133,8 +133,14 @@ int main(int argc, const char * argv[])
     
     LGLaserParser_init(&parser, callbacks);
     
-    string v("$LS=123abcde");
-    LGLaserParser_scan(&parser, (char*)v.c_str(), v.length());
+    string v("$LS=123abcde\0$LS=123abcde");
+    LGLaserParser_scan(&parser, (unsigned char*)v.c_str(), v.length());
+    
+    v = "$";
+    LGLaserParser_scan(&parser, (unsigned char*)v.c_str(), v.length());
+
+    v = "K";
+    LGLaserParser_scan(&parser, (unsigned char*)v.c_str(), v.length());
     
     return 0;
 }

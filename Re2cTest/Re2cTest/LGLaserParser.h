@@ -45,7 +45,7 @@ typedef struct _LGLaserParser
 int LGLaserParser_init(LGLaserParser*           self,
 						LGLaserParser_Callbacks  callbacks);
   
-int LGLaserParser_scan(LGLaserParser* self, char* fifo, int len);
+int LGLaserParser_scan(LGLaserParser* self, unsigned char* fifo, int len);
 
 #ifdef __cplusplus
 }
