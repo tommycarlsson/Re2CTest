@@ -1,4 +1,4 @@
-6//
+//
 //  main.cpp
 //  Re2cTest
 //
@@ -13,7 +13,7 @@ using namespace std;
 
 int onStatus(void*, unsigned int v)
 {
-    cout << "onStatus: " << v;
+    cout << "onStatus: " << hex << v << endl;
     return 0;
 }
 
